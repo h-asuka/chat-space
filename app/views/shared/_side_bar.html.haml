@@ -1,0 +1,17 @@
+.side-bar
+  .side-bar__header-side
+    .side-bar__header-side__name
+      = current_user.name
+    .side-bar__header-side__btn
+      = link_to new_group_path , class: "side-bar__header-side__btn1" do
+        = icon('fa', 'edit')
+      =link_to edit_user_path(current_user), class: "side-bar__header-side__btn1" do
+        = icon('fa', 'cog')
+  .side-bar__contents-side
+    - current_user.groups.each do |group|
+      .side-bar__contents-side__group
+        = link_to group_messages_path(group), class: "group" do
+          .side-bar__contents-side__group__a
+            = group.name
+          .side-bar__contents-side__group__b
+            メッセージがありません
