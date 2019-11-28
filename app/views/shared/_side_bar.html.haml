@@ -10,8 +10,8 @@
   .side-bar__contents-side
     - current_user.groups.each do |group|
       .side-bar__contents-side__group
-        = link_to group_messages_path(group), class: "group" do
+        = link_to group_messages_path(group) do
           .side-bar__contents-side__group__a
             = group.name
           .side-bar__contents-side__group__b
-            メッセージがありません
+            = group.show_last_message
