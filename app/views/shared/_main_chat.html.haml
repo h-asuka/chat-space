@@ -1,12 +1,15 @@
 .main-bar
   .main-bar__header
     .main-bar__header__left
-      .main-bar__header__left__a
-        header-sample
-      .main-bar__header__left__b
-        Members neko
+      .main-bar__header__left__name
+        = @group.name
+      .main-bar__header__left__members
+        Member :
+        - @group.users.each do |user|
+          = user.name
     .main-bar__header__right
-      edit
+      = link_to edit_group_path(@group), class: "main-bar__header__right__btn" do
+        edit
   .main-bar__contents
     .main-bar__contents__main
       .main-bar__contents__main__above
@@ -17,10 +20,10 @@
       .main-bar__contents__main__below
         こんにちは
   .main-bar__footer
-    .main-bar__footer__left
-      %input.main-bar__footer__left__text{placeholder: "type a message", type: "text"}
-      %label.main-bar__footer__left__image
-        = icon('fa', 'image')
-        %input.main-bar__footer__left__file{type: "file"}
-    .main-bar__footer__right
-      %input.main-bar__footer__right__btn{type: "submit",value: "Send"}
+    = form_for [@group, @message] do |f|
+      .main-bar__footer__left
+        = f.text_field :content, class: 'main-bar__footer__left__text', placeholder: 'type a message'
+        = f.label :image, class: 'main-bar__footer__left__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'main-bar__footer__left__file'
+        = f.submit 'Send', class: 'main-bar__footer__left__btn'
