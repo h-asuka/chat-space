@@ -11,14 +11,7 @@
       = link_to edit_group_path(@group), class: "main-bar__header__right__btn" do
         edit
   .main-bar__contents
-    .main-bar__contents__main
-      .main-bar__contents__main__above
-        .main-bar__contents__main__above__a
-          test-user
-        .main-bar__contents__main__above__b
-          2019/11/25/15:14
-      .main-bar__contents__main__below
-        こんにちは
+    = render partial: 'message', collection: @messages
   .main-bar__footer
     = form_for [@group, @message] do |f|
       .main-bar__footer__left

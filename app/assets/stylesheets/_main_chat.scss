@@ -38,6 +38,7 @@
   &__contents {
     height: calc(100vh - 100px - 90px);
     background-color: #fafafa;
+    overflow: scroll;
     &__main {
       &__above {
         display: flex;
