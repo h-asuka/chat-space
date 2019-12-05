@@ -39,6 +39,8 @@
     height: calc(100vh - 100px - 90px);
     background-color: #fafafa;
     overflow: scroll;
+    box-sizing: border-box;
+    padding-top: 46px;
     &__main {
       &__above {
         display: flex;
@@ -46,18 +48,18 @@
         font-size: 16px;
         color: #434A54;
         font-weight: bold;
-        padding: 46px 0px 0px 40px;
+        padding: 0px 0px 0px 40px;
         }
         &__b {
         font-size: 12px;
         color:#999999;
-        padding: 46px 0px 0px 10px;
+        padding: 0px 0px 0px 10px;
         }
       }
       &__below {
         font-size: 14px;
         color:#434A54;
-        padding: 10px 0px 0px 40px;
+        padding: 10px 0px 46px 40px;
       }
     }
 
